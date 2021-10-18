@@ -46,7 +46,7 @@ const HomeScreen = () => {
         fetchUsers();
     }, []);
 
-    console.log(users);
+    // console.log(users);
 
     const onSwipeLeft = () => {
         if(!currentUser || !me) {
@@ -75,10 +75,10 @@ const HomeScreen = () => {
         console.log('hisMatches');
         console.log('User1 ', currentUser.id);
         console.log('User2 ', me.id);
-        console.log(hisMatches);
+        // console.log(hisMatches);
 
         if (hisMatches.length > 0) {
-            console.log('Yay, this is a new match');
+            console.warn('Yay, this is a new match');
             const hisMatch = hisMatches[0];
             DataStore.save(
                 Match.copyOf(hisMatch, updated => (updated.isMatch = true)),
