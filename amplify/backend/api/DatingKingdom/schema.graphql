@@ -4,7 +4,7 @@ enum Genders {
   OTHER
 }
 
-type Match @model @auth(rules: [{allow: public}]) {
+type Match @model {
   id: ID!
 
   User1ID: ID!
@@ -15,7 +15,7 @@ type Match @model @auth(rules: [{allow: public}]) {
   isMatch: Boolean!
 }
 
-type User @model @auth(rules: [{allow: public}]) {
+type User @model {
   id: ID!
   name: String!
   image: String
