@@ -30,7 +30,6 @@ const ProfileScreen = () => {
         const getCurrentUser = async () => {
             const authuser = await Auth.currentAuthenticatedUser();
             const dbUsers = await DataStore.query(User, u => u.sub('eq', authuser.attributes.sub),);
-            console.log(dbUsers);
 
             if(!dbUsers || dbUsers.length === 0) {
                 return;
