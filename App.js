@@ -16,7 +16,6 @@ import config from './src/aws-exports';
 import { withAuthenticator } from "aws-amplify-react-native";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import { Hub } from 'aws-amplify';
-//
 
 Amplify.configure({
     ...config,
