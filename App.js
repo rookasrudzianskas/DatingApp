@@ -28,6 +28,7 @@ Amplify.configure({
 
 
 
+
 const App = () => {
 
     const color = '#b5b5b5';
