@@ -31,6 +31,7 @@ const App = () => {
     const color = '#b5b5b5';
     const activeColor = '#ff0065';
     const [activeScreen, setActiveScreen] = useState('HOME');
+    const [isUserLoading, setIsUserLoading] = useState(true);
 
     useEffect(() => {
         // Create listener
