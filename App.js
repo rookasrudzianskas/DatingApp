@@ -35,10 +35,10 @@ const App = () => {
     useEffect(() => {
         // Create listener
         const listener = Hub.listen('datastore', async hubData => {
-            const  { event, data: {model} } = hubData.payload;
+            const  { event, data } = hubData.payload;
             if (event === 'modelSynced') {
                 // console.log(`User has a network connection: ${data.active}`)
-                console.log('Model has finished syncing', model.name);
+                console.log('Model has finished syncing', JSON.stringify(data));
             }
         });
 
