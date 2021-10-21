@@ -36,9 +36,9 @@ const App = () => {
         // Create listener
         const listener = Hub.listen('datastore', async hubData => {
             const  { event, data } = hubData.payload;
-            if (event === 'modelSynced') {
+            if (event === 'modelSynced' && data?.model?.name === 'User') {
                 // console.log(`User has a network connection: ${data.active}`)
-                console.log('Model has finished syncing', JSON.stringify(data));
+                console.log('User Model has finished syncing 🔥', JSON.stringify(data) );
             }
         });
 
