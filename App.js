@@ -49,7 +49,7 @@ const App = () => {
         return () => listener();
     }, []);
 
-    DataStore.start().then();
+    // DataStore.start().then();
 
     const renderPage = () => {
 
