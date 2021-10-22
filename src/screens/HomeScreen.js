@@ -79,10 +79,10 @@ const HomeScreen = ({isUserLoading}) => {
         const hisMatches = await DataStore.query(Match, match =>
             match.User1ID('eq', currentUser.id).User2ID('eq', me.id),
         );
-
-        console.log('hisMatches');
-        console.log('User1 ', currentUser.id);
-        console.log('User2 ', me.id);
+        //
+        // console.log('hisMatches');
+        // console.log('User1 ', currentUser.id);
+        // console.log('User2 ', me.id);
         // console.log(hisMatches);
 
         if (hisMatches.length > 0) {
