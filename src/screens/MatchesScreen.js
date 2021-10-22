@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, SafeAreaView, Image} from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import users from "../../assets/data/users";
 import {Auth, DataStore} from 'aws-amplify';
-import {Match, User} from "../models";
+import {Match, User} from '../models';
 
 const MatchesScreen = () => {
     const [matches, setMatches] = useState([]);
@@ -40,6 +40,7 @@ const MatchesScreen = () => {
 
 
     useEffect(() => {
+        console.log("ROkas")
         const subscription = DataStore.observe(Match).subscribe(msg => {
             console.log(msg.model, msg.opType, msg.element);
         });
