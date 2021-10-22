@@ -47,6 +47,10 @@ const HomeScreen = ({isUserLoading}) => {
     };
 
     useEffect(() => {
+        if(isUserLoading) {
+            return;
+        }
+
         fetchUsers();
     }, [isUserLoading]);
 
