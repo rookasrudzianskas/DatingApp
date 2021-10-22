@@ -84,9 +84,8 @@ const App = () => {
                         </Pressable>
                     </View>
                 {/*)}*/}
-                {renderPage()}
-                {isUserLoading && <ActivityIndicator size={'large'} style={{flex: 1,}} /> }
 
+                {isUserLoading ? <ActivityIndicator size={'large'} style={{flex: 1,}} /> : renderPage() }
 
                 <StatusBar style="auto" />
             </View>
