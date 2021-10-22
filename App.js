@@ -69,7 +69,7 @@ const App = () => {
                 {/*<HomeScreen />*/}
                 {activeScreen === 'HOME' && <HomeScreen />}
                 {activeScreen === 'CHAT' && <MatchesScreen />}
-                {activeScreen === 'PROFILE' && <ProfileScreen />}
+                {activeScreen === 'PROFILE' && <ProfileScreen isUserLoading={isUserLoading} />}
                 {/*<MatchesScreen />*/}
                 <StatusBar style="auto" />
             </View>
