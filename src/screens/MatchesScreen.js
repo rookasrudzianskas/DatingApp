@@ -47,12 +47,12 @@ const MatchesScreen = () => {
                         New Matches 🚀
                     </Text>
                     <View style={styles.users}>
-                        {matches.map((match, index) => (
+                        {matches.map((match, index) => { return (
                             <View key={index} style={[styles.user, {marginHorizontal: 10, marginTop: 6}]}>
-                                <Image source={{uri: match?.User1?.image}} style={styles.image} />
+                                <Image source={{uri: match?.User2?.image}} style={styles.image} />
                                 <Text>{match?.User1?.name}</Text>
                             </View>
-                        )) }
+                        )}) }
                     </View>
                 </View>
             </View>
