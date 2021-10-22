@@ -38,6 +38,11 @@ const MatchesScreen = () => {
         fetchMatches();
     }, [me]);
 
+
+    useEffect(() => {
+
+    }, []);
+
     return (
 
         <SafeAreaView>
