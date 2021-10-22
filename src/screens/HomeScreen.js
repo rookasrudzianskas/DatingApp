@@ -29,7 +29,7 @@ const HomeScreen = ({isUserLoading}) => {
 
             const dbUsers = await DataStore.query(
                 User,
-                u => u.sub === user.attributes.sub,
+                u => u.sub('eq', user.attributes.sub),
             );
             if (dbUsers.length < 0) {
                 return;
