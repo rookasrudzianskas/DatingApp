@@ -48,6 +48,12 @@ const App = () => {
         return () => listener();
     }, []);
 
+    const renderPage = () => {
+        if(isUserLoading) {
+            <ActivityIndicator size="large" color="primary" style={{flex: 1,}} />
+        }
+    }
+
 
     return (
         <SafeAreaView style={{flex: 1,}}>
@@ -66,12 +72,11 @@ const App = () => {
                         </Pressable>
                     </View>
                 {/*)}*/}
-                {isUserLoading && <ActivityIndicator size={'large'} style={{flex: 1,}} />}
+                {renderPage()}
+                {isUserLoading ? <ActivityIndicator size={'large'} style={{flex: 1,}} /> : }
 
                 {/*<HomeScreen />*/}
-                {activeScreen === 'HOME' && <HomeScreen />}
-                {activeScreen === 'CHAT' && <MatchesScreen />}
-                {activeScreen === 'PROFILE' && !isUserLoading && <ProfileScreen />}
+
                 {/*<MatchesScreen />*/}
                 <StatusBar style="auto" />
             </View>
