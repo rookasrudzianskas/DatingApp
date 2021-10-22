@@ -20,6 +20,10 @@ const HomeScreen = ({isUserLoading}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
+        if(isUserLoading) {
+            return;
+        }
+
         const getCurrentUser = async () => {
             const user = await Auth.currentAuthenticatedUser();
 
@@ -44,7 +48,7 @@ const HomeScreen = ({isUserLoading}) => {
 
     useEffect(() => {
         fetchUsers();
-    }, []);
+    }, [isUserLoading]);
 
     // console.log(users);
 
