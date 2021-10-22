@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react';
 import {
+    ActivityIndicator,
     SafeAreaView,
     StyleSheet, Text, TouchableOpacity,
     View
@@ -65,11 +66,12 @@ const App = () => {
                         </Pressable>
                     </View>
                 {/*)}*/}
+                {isUserLoading && <ActivityIndicator size={'large'} style={{flex: 1,}} />}
 
                 {/*<HomeScreen />*/}
                 {activeScreen === 'HOME' && <HomeScreen />}
                 {activeScreen === 'CHAT' && <MatchesScreen />}
-                {activeScreen === 'PROFILE' && <ProfileScreen />}
+                {activeScreen === 'PROFILE' && !isUserLoading && <ProfileScreen />}
                 {/*<MatchesScreen />*/}
                 <StatusBar style="auto" />
             </View>
