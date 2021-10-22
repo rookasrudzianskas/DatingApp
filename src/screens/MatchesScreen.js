@@ -13,9 +13,9 @@ const MatchesScreen = () => {
     const getCurrentUser = async () => {
         const user = await Auth.currentAuthenticatedUser();
         console.log('This user', user);
-        const dbUsers = await DataStore.query(User, u => u.sub === user.attributes.sub);
+        const dbUsers = await DataStore.query(User, u => u.sub('eq', user.attributes.sub));
 
-        if(dbUsers.length < 0) {
+        if(!dbUsers || dbUsers.length === 0) {
             return;
         }
         setMe(dbUsers[0]);
