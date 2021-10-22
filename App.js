@@ -54,7 +54,7 @@ const App = () => {
     const renderPage = () => {
 
         if(activeScreen === 'HOME') {
-            return <HomeScreen />
+            return <HomeScreen isUserLoading={isUserLoading} />
         }
 
         if(isUserLoading) {
