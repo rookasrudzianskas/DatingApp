@@ -52,12 +52,13 @@ const App = () => {
     DataStore.start().then();
 
     const renderPage = () => {
-        if(isUserLoading) {
-            return <ActivityIndicator size="large" color="primary" style={{flex: 1,}} />
-        }
 
         if(activeScreen === 'HOME') {
             return <HomeScreen />
+        }
+
+        if(isUserLoading) {
+            return <ActivityIndicator size="large" color="primary" style={{flex: 1,}} />
         }
 
         if(activeScreen === 'CHAT') {
