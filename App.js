@@ -17,6 +17,7 @@ import config from './src/aws-exports';
 import { withAuthenticator } from "aws-amplify-react-native";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import { Hub } from 'aws-amplify';
+import {DataStore} from 'aws-amplify';
 
 Amplify.configure({
     ...config,
@@ -47,6 +48,8 @@ const App = () => {
 
         return () => listener();
     }, []);
+
+    DataStore.start().then();
 
     const renderPage = () => {
         if(isUserLoading) {
