@@ -40,7 +40,7 @@ const MatchesScreen = () => {
 
 
     useEffect(() => {
-
+        DataStore.subscribe(Match, )
     }, []);
 
     return (
