@@ -50,6 +50,7 @@ const MatchesScreen = () => {
                         {matches.map((match, index) => (
                             <View key={index} style={[styles.user, {marginHorizontal: 10, marginTop: 6}]}>
                                 <Image source={{uri: match?.User1?.image}} style={styles.image} />
+                                <Text>{match?.User1?.name}</Text>
                             </View>
                         )) }
                     </View>
