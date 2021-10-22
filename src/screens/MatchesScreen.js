@@ -4,7 +4,6 @@ import tw from "tailwind-react-native-classnames";
 import users from "../../assets/data/users";
 import {Auth, DataStore} from 'aws-amplify';
 import {Match, User} from "../models";
-import lilconfig from "lilconfig";
 
 const MatchesScreen = () => {
     const [matches, setMatches] = useState([]);
@@ -42,10 +41,9 @@ const MatchesScreen = () => {
 
     useEffect(() => {
         const subscription = DataStore.observe(Match).subscribe(msg => {
-            console.log('++++++++++++++++++++++++++++++++++++')
             console.log(msg.model, msg.opType, msg.element);
         });
-
+        //
         return () => subscription.unsubscribe();
     }, []);
 
