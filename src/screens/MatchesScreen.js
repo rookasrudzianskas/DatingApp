@@ -47,10 +47,13 @@ const MatchesScreen = () => {
                         New Matches 🚀
                     </Text>
                     <View style={styles.users}>
-                        {matches.map((match, index) => { return (
+                        {matches.map((match, index) => {
+                            const matchUser = match.User1.id === me.id ? match.User2 : match.User1;
+
+                            return (
                             <View key={index} style={[styles.user, {marginHorizontal: 10, marginTop: 6}]}>
-                                <Image source={{uri: match?.User2?.image}} style={styles.image} />
-                                <Text>{match?.User1?.name}</Text>
+                                <Image source={{uri: matchUser?.image}} style={styles.image} />
+                                <Text>{matchUser?.name}</Text>
                             </View>
                         )}) }
                     </View>
