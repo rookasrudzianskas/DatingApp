@@ -40,6 +40,7 @@ const App = () => {
             if (event === 'modelSynced' && data?.model?.name === 'User') {
                 // console.log(`User has a network connection: ${data.active}`)
                 console.log('User Model has finished syncing 🔥', JSON.stringify(data) );
+                setIsUserLoading(false);
             }
         });
 
