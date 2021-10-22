@@ -13,7 +13,7 @@ import {Auth, DataStore} from 'aws-amplify';
 import users from "../../assets/data/users";
 
 
-const HomeScreen = () => {
+const HomeScreen = ({isUserLoading}) => {
 
     const [currentUser, setCurrentUser] = useState(null);
     const [me, setMe] = useState(null);
@@ -33,7 +33,7 @@ const HomeScreen = () => {
             setMe(dbUsers[0]);
         };
         getCurrentUser().then();
-    }, []);
+    }, [isUserLoading]);
 
 
 
