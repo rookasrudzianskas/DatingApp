@@ -31,7 +31,7 @@ const HomeScreen = ({isUserLoading}) => {
                 User,
                 u => u.sub('eq', user.attributes.sub),
             );
-            if (dbUsers.length < 0) {
+            if (!dbUsers || dbUsers.length === 0) {
                 return;
             }
             setMe(dbUsers[0]);
