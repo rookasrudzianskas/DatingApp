@@ -50,7 +50,19 @@ const App = () => {
 
     const renderPage = () => {
         if(isUserLoading) {
-            <ActivityIndicator size="large" color="primary" style={{flex: 1,}} />
+            return <ActivityIndicator size="large" color="primary" style={{flex: 1,}} />
+        }
+
+        if(activeScreen === 'HOME') {
+            return <HomeScreen />
+        }
+
+        if(activeScreen === 'CHAT') {
+            return <MatchesScreen />
+        }
+
+        if(activeScreen === 'PROFILE') {
+            return <ProfileScreen />
         }
     }
 
@@ -73,11 +85,9 @@ const App = () => {
                     </View>
                 {/*)}*/}
                 {renderPage()}
-                {isUserLoading ? <ActivityIndicator size={'large'} style={{flex: 1,}} /> : }
+                {isUserLoading && <ActivityIndicator size={'large'} style={{flex: 1,}} /> }
 
-                {/*<HomeScreen />*/}
 
-                {/*<MatchesScreen />*/}
                 <StatusBar style="auto" />
             </View>
         </SafeAreaView>
