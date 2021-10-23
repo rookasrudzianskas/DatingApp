@@ -20,7 +20,7 @@ const HomeScreen = ({isUserLoading}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        if(isUserLoading || !me) {
+        if(isUserLoading) {
             return;
         }
 
@@ -47,15 +47,18 @@ const HomeScreen = ({isUserLoading}) => {
         if (isUserLoading || !me) {
             return;
         }
-        const fetchUsers = async () => {
-            let fetchedUsers = await DataStore.query(User, user =>
-                user.gender('eq', me.lookingFor),
-            );
+        console.log("DONNNNNE");
 
-            setUsers(fetchedUsers);
-        };
-        fetchUsers();
-    }, [isUserLoading, me]);
+
+        // const fetchUsers = async () => {
+        //     let fetchedUsers = await DataStore.query(User, user =>
+        //         user.gender('eq', me.lookingFor),
+        //     );
+        //
+        //     // setUsers(fetchedUsers);
+        // };
+        // fetchUsers();
+    }, [isUserLoading]);
 
     // console.log(users);
 
