@@ -30,7 +30,7 @@ const MatchesScreen = () => {
             return;
         }
         const fetchMatches = async () => {
-            console.log(me.id);
+            // console.log(me.id);
             const result = await DataStore.query(Match, m => m.isMatch('eq', true).or(m1 => m1.User1ID('eq', me.id).User2ID('eq', me.id)),);
             // console.log("This is result about the users", result);
             setMatches(result);
@@ -41,7 +41,7 @@ const MatchesScreen = () => {
 
     useEffect(() => {
         const subscription = DataStore.observe(Match).subscribe(msg => {
-            console.log(msg.model, msg.opType, msg.element);
+            console.log("This is message", msg.model, msg.opType, msg.element);
 
             if (msg.opType === 'UPDATE') {
                 const newMatch = msg.element;
