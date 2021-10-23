@@ -43,17 +43,17 @@ const MatchesScreen = () => {
         const subscription = DataStore.observe(Match).subscribe(msg => {
             console.log("This is message", msg.model, msg.opType, msg.element);
 
-            if (msg.opType === 'UPDATE') {
-                const newMatch = msg.element;
-                if (
-                    newMatch.isMatch &&
-                    (newMatch.User1ID === me.id || newMatch.User2ID === me.id)
-                ) {
-                    console.log(
-                        '+++++++++++++++++++ There is a new match waiting for you!',
-                    );
-                }
-            }
+            // if (msg.opType === 'UPDATE') {
+            //     const newMatch = msg.element;
+            //     if (
+            //         newMatch.isMatch &&
+            //         (newMatch.User1ID === me.id || newMatch.User2ID === me.id)
+            //     ) {
+            //         console.log(
+            //             '+++++++++++++++++++ There is a new match waiting for you!',
+            //         );
+            //     }
+            // }
         });
 
         return () => subscription.unsubscribe();
