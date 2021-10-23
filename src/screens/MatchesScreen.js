@@ -43,7 +43,7 @@ const MatchesScreen = () => {
         const subscription = DataStore.observe(Match).subscribe(msg => {
             console.log("This is message", msg.model, msg.opType, msg.element);
 
-            if (msg.opType === 'UPDATE') {
+            if (msg.opType === 'Update') {
                 const newMatch = msg.element;
                 if (
                     newMatch.isMatch &&
