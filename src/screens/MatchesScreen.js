@@ -44,7 +44,7 @@ const MatchesScreen = () => {
         const subscription = DataStore.observe(Match).subscribe(msg => {
             console.log(msg.model, msg.opType, msg.element);
         });
-        //
+
         return () => subscription.unsubscribe();
     }, []);
 
