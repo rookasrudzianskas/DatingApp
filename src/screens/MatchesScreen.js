@@ -56,7 +56,7 @@ const MatchesScreen = () => {
             // }
         });
 
-        // return () => subscription.unsubscribe();
+        return () => subscription.unsubscribe();
     }, []);
 
     return (
