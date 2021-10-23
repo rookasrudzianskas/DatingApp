@@ -72,8 +72,8 @@ const MatchesScreen = () => {
                             const matchUser = match.User1ID === me.id ? match.User2 : match.User1;
                             if(!match.User1 || !match.User2) {
                                 return (
-                                    <View>
-                                        <Text>There is a new match 🔥</Text>
+                                    <View style={tw`items-center justify-center mt-64`}>
+                                        <Text style={tw`font-bold text-xl`}>There is a new match 🔥</Text>
                                     </View>
                                 )
                             }
