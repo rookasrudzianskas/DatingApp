@@ -70,6 +70,13 @@ const MatchesScreen = () => {
                     <View style={styles.users}>
                         {matches.map((match, index) => {
                             const matchUser = match.User1ID === me.id ? match.User2 : match.User1;
+                            if(!match.User1 || !match.User2) {
+                                return (
+                                    <View>
+
+                                    </View>
+                                )
+                            }
 
                             return (
                             <View key={index} style={[styles.user, {marginHorizontal: 10, marginTop: 6}]}>
