@@ -42,8 +42,9 @@ const HomeScreen = ({isUserLoading}) => {
 
 
     const fetchUsers = async () => {
-        const fetchedUsers = await DataStore.query(User,  user =>
-            user.gender('eq', me.lookingFor));
+        let fetchedUsers = await DataStore.query(User, user =>
+            user.gender('eq', me.lookingFor),
+        );
         setUsers(fetchedUsers);
     };
 
