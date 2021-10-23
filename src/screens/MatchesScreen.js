@@ -44,7 +44,7 @@ const MatchesScreen = () => {
             console.log("This is message", msg.model, msg.opType, msg.element);
 
             if (msg.opType === 'UPDATE') {
-            //     const newMatch = msg.element;
+                const newMatch = msg.element;
             //     if (
             //         newMatch.isMatch &&
             //         (newMatch.User1ID === me.id || newMatch.User2ID === me.id)
