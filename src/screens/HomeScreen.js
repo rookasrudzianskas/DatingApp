@@ -37,22 +37,23 @@ const HomeScreen = ({isUserLoading}) => {
             setMe(dbUsers[0]);
         };
         getCurrentUser().then();
-    }, [isUserLoading, me]);
+    }, [isUserLoading]);
 
 
 
     const fetchUsers = async () => {
-        const fetchedUsers = await DataStore.query(User, user => user.gender('eq', me.lookingFor));
+        const fetchedUsers = await DataStore.query(User,  user =>
+            user.gender('eq', me.lookingFor));
         setUsers(fetchedUsers);
     };
 
     useEffect(() => {
-        if(isUserLoading) {
+        if(isUserLoading  || !me) {
             return;
         }
 
         fetchUsers();
-    }, [isUserLoading]);
+    }, [isUserLoading, me]);
 
     // console.log(users);
 
