@@ -20,7 +20,7 @@ const HomeScreen = ({isUserLoading}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        if(isUserLoading) {
+        if(isUserLoading || !me) {
             return;
         }
 
@@ -37,7 +37,7 @@ const HomeScreen = ({isUserLoading}) => {
             setMe(dbUsers[0]);
         };
         getCurrentUser().then();
-    }, [isUserLoading]);
+    }, [isUserLoading, me]);
 
 
 
