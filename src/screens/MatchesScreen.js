@@ -73,7 +73,7 @@ const MatchesScreen = () => {
                             if(!match.User1 || !match.User2) {
                                 return (
                                     <View>
-
+                                        <Text>There is a new match 🔥</Text>
                                     </View>
                                 )
                             }
