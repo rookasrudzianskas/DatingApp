@@ -18,6 +18,9 @@ const HomeScreen = ({isUserLoading}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [me, setMe] = useState(null);
     const [users, setUsers] = useState([]);
+    const [matches, setMatches] = useState([]);
+
+    // -----------------------------------------------------------------------------------------
 
     useEffect(() => {
         if(isUserLoading) {
@@ -39,6 +42,23 @@ const HomeScreen = ({isUserLoading}) => {
         getCurrentUser().then();
     }, [isUserLoading]);
 
+    // -----------------------------------------------------------------------------------------
+
+    useEffect(() =>  {
+        if(!me) {
+            return;
+        }
+        const fetchMatches = async () => {
+            // console.log(me.id);
+            const result = await DataStore.query(Match, m => m.isMatch('eq', true).or(m1 => m1.User1ID('eq', me.id).User2ID('eq', me.id)),);
+            // console.log("This is result about the users", result);
+            setMatches(result);
+        };
+        fetchMatches();
+    }, [me]);
+
+    // -----------------------------------------------------------------------------------------
+
     useEffect(() => {
         // console.log(me);
         if (isUserLoading || !me) {
@@ -55,6 +75,8 @@ const HomeScreen = ({isUserLoading}) => {
     }, [isUserLoading, me]);
 
     // console.log(users);
+
+    // -----------------------------------------------------------------------------------------
 
     const onSwipeLeft = () => {
         if(!currentUser || !me) {
