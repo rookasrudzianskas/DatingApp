@@ -81,52 +81,49 @@ const ProfileScreen = () => {
         getCurrentUser();
     }, []);
 
-    const save = async () => {
-        if (!isValid()) {
-            console.log('Not Valid');
-        }
 
-        let newImage;
-        if (newImageLocalUri) {
-            newImage = await uploadImage();
-        }
+        const save = async () => {
+            if (!isValid()) {
+                console.warn('Not valid');
+                return;
+            }
+            let newImage;
+            if (newImageLocalUri) {
+                newImage = await uploadImage();
+            }
 
-        // ------------------------------------------------------------------------------
+            if (user) {
+                const updatedUser = User.copyOf(user, updated => {
+                    updated.name = name;
+                    updated.bio = bio;
+                    updated.gender = gender;
+                    updated.lookingFor = lookingFor;
+                    if (newImage) {
+                        updated.image = newImage;
+                    }
+                });
 
-        if(user) {
-            const updatedUser = User.copyOf(user, updated => {
-                updated.name = name;
-                updated.bio = bio;
-                updated.gender = gender;
-                updated.lookingFor = lookingFor;
-                if (newImage) {
-                    updated.image = newImage;
-                }
-            })
+                await DataStore.save(updatedUser);
+                setNewImageLocalUri(null);
+            } else {
+                // create a new user
+                const authUser = await Auth.currentAuthenticatedUser();
 
-            await DataStore.save(updatedUser).then();
-            setNewImageLocalUri(null);
+                const newUser = new User({
+                    sub: authUser.attributes.sub,
+                    name,
+                    bio,
+                    gender,
+                    lookingFor,
+                    image:
+                        'http://www.svietimonaujienos.lt/wp-content/uploads/2019/12/Rokas-e1575467263326.jpg',
+                });
+                await DataStore.save(newUser);
+            }
 
-        } else {
-            // create a new user
-            const authUser = await Auth.currentAuthenticatedUser();
+            Alert.alert('User saved successfully');
+        };
 
-            const newUser = new User({
-                sub: authUser.attributes.sub,
-                name: name,
-                bio: bio,
-                gender,
-                lookingFor,
-                image: 'http://www.svietimonaujienos.lt/wp-content/uploads/2019/12/Rokas-e1575467263326.jpg',
-            });
-
-            DataStore.save(newUser).then();
-        }
-
-        //------------------------------------------------------------------------------
-
-        Alert.alert("User saved successfully");
-    }
 
     return (
 
