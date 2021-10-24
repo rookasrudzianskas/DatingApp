@@ -106,6 +106,9 @@ const ProfileScreen = () => {
                     <Text style={tw`text-xl font-bold text-green-500`}>Sign out</Text>
                 </TouchableOpacity>
 
+                <TouchableOpacity onPress={openImagePickerAsync}>
+                    <Image source={{uri: user.image}} style={{width: 70, height: 70, borderRadius: 50, marginTop: 10, marginBottom: -40}} />
+                </TouchableOpacity>
                 <View style={tw`mt-10`}>
                     <TextInput value={name} style={tw`text-lg`} onChangeText={setName} placeholder={'Enter your name'} />
                     <TextInput style={tw`mt-3 text-lg`} multiline numberOfLines={3} value={bio} onChangeText={setBio} placeholder={'Enter your bio'} />
@@ -137,9 +140,6 @@ const ProfileScreen = () => {
                     <Picker.Item label="Female" value="FEMALE" />
                 </Picker>
 
-                <TouchableOpacity onPress={openImagePickerAsync} style={tw`bg-blue-500 px-4 py-4 rounded-lg`}>
-                    <Text style={tw`font-bold`}>Pick a photo</Text>
-                </TouchableOpacity>
 
 
                 <TouchableOpacity onPress={save}>
@@ -147,6 +147,7 @@ const ProfileScreen = () => {
                         <Text style={tw`font-bold`}>Save</Text>
                     </View>
                 </TouchableOpacity>
+
             </View>
         </SafeAreaView>
     );
