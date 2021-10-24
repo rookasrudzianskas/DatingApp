@@ -53,9 +53,9 @@ const HomeScreen = ({isUserLoading}) => {
             const result = await DataStore.query(Match, m => m.isMatch('eq', true).or(m1 => m1.User1ID('eq', me.id).User2ID('eq', me.id)),);
             // console.log("This is result about the users", result);
             console.log("This is result", result);
-            setMatchesIds(result.map(match => {
-                match.User1ID === me?.id ? match.User2ID : match.User1;
-            }))
+            setMatchesIds(result.map(match =>
+                match.User1ID === me?.id ? match.User2ID : match.User1ID
+            ))
         };
         fetchMatches();
     }, [me]);
