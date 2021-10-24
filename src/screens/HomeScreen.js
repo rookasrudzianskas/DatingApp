@@ -39,10 +39,6 @@ const HomeScreen = ({isUserLoading}) => {
         getCurrentUser().then();
     }, [isUserLoading]);
 
-
-
-
-
     useEffect(() => {
         // console.log(me);
         if (isUserLoading || !me) {
