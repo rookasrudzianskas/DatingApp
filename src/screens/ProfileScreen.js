@@ -129,13 +129,30 @@ const ProfileScreen = () => {
         Alert.alert("User saved successfully");
     }
 
+    const renderImage = () => {
+        if(newImageLocalUri) {
+            return (
+                    <Image source={{uri: newImageLocalUri}} style={{width: 70, height: 70, borderRadius: 50, marginTop: 10, marginBottom: -40}} />
+            )
+        }
+
+        if(user?.image?.startsWith('http')){
+            return (
+                <Image source={{uri: user?.image}} style={{width: 70, height: 70, borderRadius: 50, marginTop: 10, marginBottom: -40}} />
+            )
+        } else {
+            return (
+                <S3Image key={user?.image} />
+            )
+        }
+    }
+
     return (
 
         <SafeAreaView>
             <View style={{width: '100%', flexGrow: 1, padding: 10, alignItems: 'center'}}>
                <Text style={tw`text-lg font-bold`}>Profile</Text>
                 <TouchableOpacity onPress={signOutFunc}>
-                    {user.}
                     <Text style={tw`text-xl font-bold text-green-500`}>Sign out</Text>
                 </TouchableOpacity>
 
