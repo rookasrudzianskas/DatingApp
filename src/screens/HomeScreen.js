@@ -18,7 +18,7 @@ const HomeScreen = ({isUserLoading}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [me, setMe] = useState(null);
     const [users, setUsers] = useState([]);
-    const [matchesIds, setMatchesIds] = useState([]); // all users ids, of people of who we already matched
+    const [matchesIds, setMatchesIds] = useState(null); // all users ids, of people of who we already matched
 
     // -----------------------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ const HomeScreen = ({isUserLoading}) => {
 
     useEffect(() => {
         // console.log(me);
-        if (isUserLoading || !me) {
+        if (isUserLoading || !me || matchesIds === null) {
             return;
         }
         const fetchUsers = async () => {
