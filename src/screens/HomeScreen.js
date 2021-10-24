@@ -44,19 +44,19 @@ const HomeScreen = ({isUserLoading}) => {
 
 
     useEffect(() => {
-        if (isUserLoading || !me) {
+        if (isUserLoading) {
             return;
         }
         console.log("DONNNNNE"); // smile
 
-        // const fetchUsers = async () => {
-        //     let fetchedUsers = await DataStore.query(User, user =>
-        //         user.gender('eq', me.lookingFor),
-        //     );
+        const fetchUsers = async () => {
+            let fetchedUsers = await DataStore.query(User,
+                    // user => user.gender('eq', me.lookingFor),
+            );
         //
-        //     // setUsers(fetchedUsers);
-        // };
-        // fetchUsers();
+            setUsers(fetchedUsers);
+        };
+        fetchUsers();
     }, [isUserLoading]);
 
     // console.log(users);
