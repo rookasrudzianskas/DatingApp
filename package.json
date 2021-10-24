@@ -31,6 +31,7 @@
     "react-native-tailwindcss": "^1.1.11",
     "react-native-unimodules": "0.14.10",
     "react-native-web": "~0.13.12",
+    "storage": "^0.2.0",
     "tailwind-react-native-classnames": "^1.5.1"
   },
   "devDependencies": {
