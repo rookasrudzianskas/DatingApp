@@ -142,7 +142,7 @@ const ProfileScreen = () => {
             )
         } else {
             return (
-                <S3Image style={{height: 70, width: 70, borderRadius: 50}} imgKey={user?.image} />
+                <S3Image style={{height: 70, width: 70, borderRadius: 50, marginTop: 10, marginBottom: -40}} imgKey={user?.image} />
             )
         }
     }
