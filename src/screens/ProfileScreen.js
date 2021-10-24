@@ -86,6 +86,11 @@ const ProfileScreen = () => {
             console.log('Not Valid');
         }
 
+        let newImage;
+        if (newImageLocalUri) {
+            newImage = await uploadImage();
+        }
+
         // ------------------------------------------------------------------------------
 
         if(user) {
