@@ -29,9 +29,9 @@ const ProfileScreen = () => {
 
 
     const signOutFunc = async () => {
+    //     sign out
         await DataStore.clear();
         Auth.signOut().then();
-    //     sign out
     }
 
 
