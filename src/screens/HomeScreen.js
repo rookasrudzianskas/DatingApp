@@ -75,7 +75,7 @@ const HomeScreen = ({isUserLoading}) => {
             setUsers(fetchedUsers);
         };
         fetchUsers();
-    }, [isUserLoading, me]);
+    }, [isUserLoading, me, matchesIds]);
 
     // console.log(users);
 
