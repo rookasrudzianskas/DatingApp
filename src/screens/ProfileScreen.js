@@ -41,6 +41,26 @@ const ProfileScreen = () => {
         return name && bio && gender && lookingFor;
     }
 
+    const uploadImage = async () => {
+        try {
+            const response = await fetch(newImageLocalUri);
+
+            const blob = await response.blob();
+
+            const urlParts = newImageLocalUri.split('.');
+            const extension = urlParts[urlParts.length - 1];
+
+            const key = `${user.id}.${extension}`;
+
+            await Storage.put(key, blob);
+
+            return key;
+        } catch (e) {
+            console.log(e);
+        }
+        return '';
+    };
+
     useEffect(() => {
         const getCurrentUser = async () => {
             const authuser = await Auth.currentAuthenticatedUser();
