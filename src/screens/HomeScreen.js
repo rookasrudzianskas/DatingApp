@@ -48,8 +48,6 @@ const HomeScreen = ({isUserLoading}) => {
         if (isUserLoading || !me) {
             return;
         }
-        // console.log("DONNNNNE"); // smile
-
         const fetchUsers = async () => {
             let fetchedUsers = await DataStore.query(User, user =>
                 user.gender('eq', me.lookingFor),
