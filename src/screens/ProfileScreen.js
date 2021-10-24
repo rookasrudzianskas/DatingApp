@@ -137,6 +137,11 @@ const ProfileScreen = () => {
                     <Picker.Item label="Female" value="FEMALE" />
                 </Picker>
 
+                <TouchableOpacity onPress={openImagePickerAsync} style={tw`bg-blue-500 px-4 py-4 rounded-lg`}>
+                    <Text style={tw`font-bold`}>Pick a photo</Text>
+                </TouchableOpacity>
+
+
                 <TouchableOpacity onPress={save}>
                     <View style={tw`bg-green-500 px-10 mt-4 py-4 rounded-lg`}>
                         <Text style={tw`font-bold`}>Save</Text>
