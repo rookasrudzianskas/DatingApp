@@ -147,6 +147,8 @@ const ProfileScreen = () => {
         }
     }
 
+    //DONE
+
     return (
 
         <SafeAreaView>
