@@ -9,6 +9,12 @@ import {User} from "../models";
 import * as ImagePicker from 'expo-image-picker';
 
 const ProfileScreen = () => {
+    const [user, setUser] = useState(null);
+
+    const [name, setName] = useState('');
+    const [bio, setBio] = useState('');
+    const [gender, setGender] = useState();
+    const [lookingFor, setLookingFor] = useState();
 
     let openImagePickerAsync = async () => {
         let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -29,12 +35,6 @@ const ProfileScreen = () => {
     //     sign out
     }
 
-    const [user, setUser] = useState(null);
-
-    const [name, setName] = useState('');
-    const [bio, setBio] = useState('');
-    const [gender, setGender] = useState();
-    const [lookingFor, setLookingFor] = useState();
 
     const isValid = () => {
         return name && bio && gender && lookingFor;
