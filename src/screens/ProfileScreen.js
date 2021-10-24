@@ -7,6 +7,7 @@ import {Picker} from '@react-native-picker/picker';
 import {DataStore, Storage} from 'aws-amplify';
 import {User} from "../models";
 import * as ImagePicker from 'expo-image-picker';
+import {S3Image} from 'aws-amplify-react-native'
 
 const ProfileScreen = () => {
     const [user, setUser] = useState(null);
@@ -134,6 +135,7 @@ const ProfileScreen = () => {
             <View style={{width: '100%', flexGrow: 1, padding: 10, alignItems: 'center'}}>
                <Text style={tw`text-lg font-bold`}>Profile</Text>
                 <TouchableOpacity onPress={signOutFunc}>
+                    {user.}
                     <Text style={tw`text-xl font-bold text-green-500`}>Sign out</Text>
                 </TouchableOpacity>
 
