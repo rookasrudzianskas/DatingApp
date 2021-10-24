@@ -105,6 +105,8 @@ const ProfileScreen = () => {
             })
 
             await DataStore.save(updatedUser).then();
+            setNewImageLocalUri(null);
+
         } else {
             // create a new user
             const authUser = await Auth.currentAuthenticatedUser();
