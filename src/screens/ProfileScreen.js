@@ -10,7 +10,6 @@ import * as ImagePicker from 'expo-image-picker';
 
 const ProfileScreen = () => {
     const [user, setUser] = useState(null);
-
     const [name, setName] = useState('');
     const [bio, setBio] = useState('');
     const [gender, setGender] = useState();
