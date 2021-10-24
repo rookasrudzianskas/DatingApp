@@ -18,7 +18,7 @@ const HomeScreen = ({isUserLoading}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [me, setMe] = useState(null);
     const [users, setUsers] = useState([]);
-    const [matches, setMatches] = useState([]);
+    const [matchesIds, setMatchesIds] = useState([]); // all users ids, of people of who we already matched
 
     // -----------------------------------------------------------------------------------------
 
