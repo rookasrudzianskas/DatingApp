@@ -19,6 +19,9 @@ import ProfileScreen from "./src/screens/ProfileScreen";
 import { Hub } from 'aws-amplify';
 import {DataStore} from 'aws-amplify';
 
+import { Image } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+
 Amplify.configure({
     ...config,
     Analytics: {
