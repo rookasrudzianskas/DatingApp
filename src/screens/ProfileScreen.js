@@ -99,9 +99,14 @@ const ProfileScreen = () => {
                 updated.bio = bio;
                 updated.gender = gender;
                 updated.lookingFor = lookingFor;
+                if (newImage) {
+                    updated.image = newImage;
+                }
             })
 
             await DataStore.save(updatedUser).then();
+            setNewImageLocalUri(null);
+
         } else {
             // create a new user
             const authUser = await Auth.currentAuthenticatedUser();
