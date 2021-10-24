@@ -6,8 +6,22 @@ import {Auth} from 'aws-amplify';
 import {Picker} from '@react-native-picker/picker';
 import {DataStore} from 'aws-amplify';
 import {User} from "../models";
+import * as ImagePicker from 'expo-image-picker';
 
 const ProfileScreen = () => {
+
+    let openImagePickerAsync = async () => {
+        let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+        if (permissionResult.granted === false) {
+            alert("Permission to access camera roll is required!");
+            return;
+        }
+
+        let pickerResult = await ImagePicker.launchImageLibraryAsync();
+        console.log(pickerResult);
+    }
+
 
     const signOutFunc = async () => {
         await DataStore.clear();
