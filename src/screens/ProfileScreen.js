@@ -81,49 +81,50 @@ const ProfileScreen = () => {
         getCurrentUser();
     }, []);
 
+    const save = async () => {
+        if (!isValid()) {
+            console.log('Not Valid');
+        }
 
-        const save = async () => {
-            if (!isValid()) {
-                console.warn('Not valid');
-                return;
-            }
-            let newImage;
-            if (newImageLocalUri) {
-                newImage = await uploadImage();
-            }
+        let newImage;
+        if (newImageLocalUri) {
+            newImage = await uploadImage();
+        }
 
-            if (user) {
-                const updatedUser = User.copyOf(user, updated => {
-                    updated.name = name;
-                    updated.bio = bio;
-                    updated.gender = gender;
-                    updated.lookingFor = lookingFor;
-                    if (newImage) {
-                        updated.image = newImage;
-                    }
-                });
+        // ------------------------------------------------------------------------------
 
-                await DataStore.save(updatedUser);
-                setNewImageLocalUri(null);
-            } else {
-                // create a new user
-                const authUser = await Auth.currentAuthenticatedUser();
+        if(user) {
+            const updatedUser = User.copyOf(user, updated => {
+                updated.name = name;
+                updated.bio = bio;
+                updated.gender = gender;
+                updated.lookingFor = lookingFor;
+                if (newImage) {
+                    updated.image = newImage;
+                }
+            })
 
-                const newUser = new User({
-                    sub: authUser.attributes.sub,
-                    name,
-                    bio,
-                    gender,
-                    lookingFor,
-                    image:
-                        'http://www.svietimonaujienos.lt/wp-content/uploads/2019/12/Rokas-e1575467263326.jpg',
-                });
-                await DataStore.save(newUser);
-            }
+            await DataStore.save(updatedUser).then();
+        } else {
+            // create a new user
+            const authUser = await Auth.currentAuthenticatedUser();
 
-            Alert.alert('User saved successfully');
-        };
+            const newUser = new User({
+                sub: authUser.attributes.sub,
+                name: name,
+                bio: bio,
+                gender,
+                lookingFor,
+                image: 'http://www.svietimonaujienos.lt/wp-content/uploads/2019/12/Rokas-e1575467263326.jpg',
+            });
 
+            DataStore.save(newUser).then();
+        }
+
+        //------------------------------------------------------------------------------
+
+        Alert.alert("User saved successfully");
+    }
 
     return (
 
