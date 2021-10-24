@@ -55,7 +55,7 @@ const HomeScreen = ({isUserLoading}) => {
             console.log("This is result", result);
             setMatchesIds(result.map(match =>
                 match.User1ID === me?.id ? match.User2ID : match.User1ID
-            ))
+            ));
         };
         fetchMatches();
     }, [me]);
