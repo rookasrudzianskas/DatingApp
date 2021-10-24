@@ -138,7 +138,7 @@ const ProfileScreen = () => {
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={openImagePickerAsync}>
-                    <Image source={{uri: newImageLocalUri}} style={{width: 70, height: 70, borderRadius: 50, marginTop: 10, marginBottom: -40}} />
+                    <Image source={{uri: newImageLocalUri ? newImageLocalUri : user?.image}} style={{width: 70, height: 70, borderRadius: 50, marginTop: 10, marginBottom: -40}} />
                 </TouchableOpacity>
                 <View style={tw`mt-10`}>
                     <TextInput value={name} style={tw`text-lg`} onChangeText={setName} placeholder={'Enter your name'} />
