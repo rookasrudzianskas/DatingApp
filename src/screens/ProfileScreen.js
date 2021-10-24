@@ -14,6 +14,7 @@ const ProfileScreen = () => {
     const [bio, setBio] = useState('');
     const [gender, setGender] = useState();
     const [lookingFor, setLookingFor] = useState();
+    const [newImageLocalUri, setNewImageLocalUri] = useState(null);
 
     let openImagePickerAsync = async () => {
         let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -25,6 +26,7 @@ const ProfileScreen = () => {
 
         let pickerResult = await ImagePicker.launchImageLibraryAsync();
         console.log(pickerResult);
+        setNewImageLocalUri(pickerResult.uri);
     }
 
 
