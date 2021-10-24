@@ -15,6 +15,8 @@ const TinderCard = (props) => {
         }
     }, [image]);
 
+    //DoNE
+
     return (
             <View style={styles.card}>
                 <View style={tw`flex-1 items-center justify-center`}>
