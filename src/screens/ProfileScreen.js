@@ -4,7 +4,7 @@ import tw from "tailwind-react-native-classnames";
 import users from "../../assets/data/users";
 import {Auth} from 'aws-amplify';
 import {Picker} from '@react-native-picker/picker';
-import {DataStore} from 'aws-amplify';
+import {DataStore, Storage} from 'aws-amplify';
 import {User} from "../models";
 import * as ImagePicker from 'expo-image-picker';
 
