@@ -104,6 +104,8 @@ const ProfileScreen = () => {
                 }
             })
 
+            console.log("THE USER IS UPDAARE")
+
             await DataStore.save(updatedUser).then();
         } else {
             // create a new user
