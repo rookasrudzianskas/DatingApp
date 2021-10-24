@@ -63,7 +63,6 @@ const HomeScreen = ({isUserLoading}) => {
     // -----------------------------------------------------------------------------------------
 
     useEffect(() => {
-        // console.log(me);
         if (isUserLoading || !me || matchesIds === null) {
             return;
         }
@@ -72,7 +71,8 @@ const HomeScreen = ({isUserLoading}) => {
                 user.gender('eq', me.lookingFor),
             );
 
-            fetchedUsers = fetchUsers.filter(u => !matchesIds.includes(u.id));
+            fetchedUsers = fetchedUsers.filter(u => !matchesIds.includes(u.id));
+
             setUsers(fetchedUsers);
         };
         fetchUsers();
